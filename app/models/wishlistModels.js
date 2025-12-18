@@ -1,0 +1,34 @@
+
+const mongoose = require("mongoose");
+
+const wishlistSchema = new mongoose.Schema(
+  {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Customer",
+      required: true
+    },
+
+    products: [
+      {
+        productId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product",
+          required: true
+        },
+        productColor: { type: String },
+
+       
+        addedAt: {
+          type: Date,
+          default: Date.now
+        }
+      }
+    ]
+  },
+  {
+    timestamps: true // wishlist createdAt & updatedAt
+  }
+);
+
+module.exports = mongoose.model("Wishlist", wishlistSchema);
