@@ -1,0 +1,60 @@
+// const mongoose = require("mongoose");
+
+// const bulkVendorSchema = new mongoose.Schema(
+//   {
+//     name: {
+//       type: String,
+//       required: true,
+//       trim: true
+//     },
+//     phone: {
+//       type: String,
+//       required: true
+//     },
+//     email: {
+//       type: String,
+//       required: true,
+//       lowercase: true,
+//       trim: true
+//     }
+//   },
+//   { timestamps: true }
+// );
+
+// module.exports = mongoose.model("BulkVendor", bulkVendorSchema);
+
+const mongoose = require("mongoose");
+
+const bulkVendorSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    // phone: {
+    //   type: String,
+    //   required: true,
+    //   unique: true,      // ✅ UNIQUE
+    // },
+    // email: {
+    //   type: String,
+    //   required: true,
+    //   lowercase: true,
+    //   trim: true,
+    //   unique: true,      // ✅ UNIQUE
+    // },
+    email: {
+  type: String,
+  trim: true
+},
+phone: {
+  type: String,
+  trim: true
+},
+
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("BulkVendor", bulkVendorSchema);
